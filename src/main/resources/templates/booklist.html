@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Car List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Book List</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Author</th>
+
+			<th>Publication Year</th>
+			<th>ISBN</th>
+			<th>Price</th>
+		</tr>
+
+		<!--IN CONTROLLER, BOOK TABLE IS SAVED INTO 'BOOKS'
+		THEN THYMELEAF SHOWS THE ACCESSED BOOK DATA-->
+		<tr th:each="book : ${books}">
+			<td th:text="${book.id}">id</td>
+			<td th:text="${book.title}">id</td>
+			<td th:text="${book.author}">id</td>
+
+			<td th:text="${book.publicationYear}">id</td>
+			<td th:text="${book.isbn}">id</td>
+			<td th:text="${book.price}">id</td>
+
+			<!-- DELETE BOOK LINK-->
+			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+		</tr>
+	</table>
+
+	<!-- ADD BOOK LINK BELOW TABLE-->
+	<a href="/add" class="btn btn-primary">Add Book</a>
+
+	
+
+</body>
+</html>

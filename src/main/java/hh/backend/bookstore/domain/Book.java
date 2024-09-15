@@ -1,34 +1,48 @@
 package hh.backend.bookstore.domain;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+
+@Entity
 public class Book {
 
-    public String title = "";
-    public String author = "";
-    public String publicationYear = "";
-    public String isbn = "";
-    public double price = 0;
+    // PRIMARY KEY OF "TABLE" == ENTITY
+    // ENTITY INTERFACES WITH THE ACTUAL TABLE IN DATABASE
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    public String title;
+    public String author;
+    public Long publicationYear;
+    public String isbn;
+    public Double price;
 
 
 
-    
-    public Book(String title, String author, String publicationYear, String isbn, double price) {
+
+    public Book(String title, String author, Long publicationYear, String isbn, double price) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
         this.isbn = isbn;
         this.price = price;
     }
+
     public Book() {
     }
 
 
 
 
-    public String getTitle() {
-        return title;
+    public Long getId() {
+        return id;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(Long id) {
+        this.id = id;
     }
     public String getAuthor() {
         return author;
@@ -36,10 +50,10 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public String getPublicationYear() {
+    public Long getPublicationYear() {
         return publicationYear;
     }
-    public void setPublicationYear(String publicationYear) {
+    public void setPublicationYear(Long publicationYear) {
         this.publicationYear = publicationYear;
     }
     public String getIsbn() {
@@ -48,21 +62,41 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 
+
+
+    
+
+
+
+    
+
+
+
+
+    
 
     @Override
     public String toString() {
         return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", isbn=" + isbn
                 + ", price=" + price + "]";
     }
+
+ 
 
 
 }
