@@ -25,7 +25,9 @@ import hh.backend.bookstore.domain.BookRepository;
 public class BookController {
 
     List<Book> books = new ArrayList<Book>();
-    Book newBook = null;
+
+    //Book newBook = null;
+    //Book selectedBook = null;
 
 
     @Autowired
@@ -50,6 +52,7 @@ public class BookController {
     }
 
 
+    // FUNCTIONS ACTIVATED DURING THE ADDING OF NEW BOOKS IN BOOKLIST.HTML AND ADDBOOK.HTML
 
     @RequestMapping(value = "/add")
     public String addBook(Model model){
@@ -58,19 +61,27 @@ public class BookController {
     }
 
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @PostMapping(value = "/save")
     public String save(Book newBook){
         repository.save(newBook);
         return "redirect:/booklist";
     }
  
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    // DELETE AND EDIT FUNCTIONS FOR BOOKS SELECTED IN BOOKLIST.HTML
+
+    @GetMapping(value = "/delete/{id}")
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         repository.deleteById(bookId);
         return "redirect:/booklist";
     }
  
+
+    @RequestMapping(value = "/edit/{id}")
+    public String editBook(@PathVariable("id") Long bookId, Model model) {
+        model.addAttribute("selectedBook", repository.findById(bookId));
+        return "editbook";
+    }
 
 
 }
