@@ -60,15 +60,15 @@ public class BookController {
         return "addbook";
     }
 
-
-    @PostMapping(value = "/save")
-    public String save(Book newBook){
+    
+    @PostMapping(value = "/savenew")
+    public String saveNew(Book newBook){
         repository.save(newBook);
         return "redirect:/booklist";
     }
  
 
-    // DELETE AND EDIT FUNCTIONS FOR BOOKS SELECTED IN BOOKLIST.HTML
+    // DELETE FUNCTION FOR BOOKS SELECTED IN BOOKLIST.HTML
 
     @GetMapping(value = "/delete/{id}")
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
@@ -77,11 +77,20 @@ public class BookController {
     }
  
 
+    // FUNCTIONS ACTIVATED DURING THE EDITING OF BOOKS IN BOOKLIST.HTML AND EDITBOOK.HTML
+    
     @RequestMapping(value = "/edit/{id}")
     public String editBook(@PathVariable("id") Long bookId, Model model) {
         model.addAttribute("selectedBook", repository.findById(bookId));
         return "editbook";
     }
+
+
+    @PostMapping(value = "/savemodified")
+        public String saveModified(Book newBook){
+            repository.save(newBook);
+            return "redirect:/booklist";
+        }
 
 
 }
