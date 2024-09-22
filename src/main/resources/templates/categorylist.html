@@ -19,14 +19,17 @@
 			
 		</tr>
 
-		<!--IN CONTROLLER, BOOK TABLE IS SAVED INTO 'BOOKS'
-		THEN THYMELEAF SHOWS THE ACCESSED BOOK DATA-->
+		<!--IN CONTROLLER, CAT TABLE IS SAVED INTO 'CATEGORIES'
+		THEN THYMELEAF SHOWS THE ACCESSED CATEGORY'S DATA-->
 		<tr th:each="cat : ${categories}">
 			<td th:text="${cat.categoryId}">id</td>
 			<td th:text="${cat.name}">name</td>
 		</tr>
 	</tbody>
 	</table>
+
+	<!-- ADD CATEGORY LINK BELOW TABLE-->
+	<a href="/addcat" class="btn btn-primary">Add Category</a>
 
 </body>
 </html>
