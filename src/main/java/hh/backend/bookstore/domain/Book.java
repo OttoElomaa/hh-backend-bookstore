@@ -3,6 +3,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
  
@@ -21,15 +23,20 @@ public class Book {
     public String isbn;
     public Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
 
 
 
-    public Book(String title, String author, Long publicationYear, String isbn, double price) {
+
+    public Book(String title, String author, Long publicationYear, String isbn, double price, Category category) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
         this.isbn = isbn;
         this.price = price;
+        this.category = category;
     }
 
     public Book() {
@@ -44,24 +51,28 @@ public class Book {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getAuthor() {
         return author;
     }
     public void setAuthor(String author) {
         this.author = author;
     }
+
     public Long getPublicationYear() {
         return publicationYear;
     }
     public void setPublicationYear(Long publicationYear) {
         this.publicationYear = publicationYear;
     }
+
     public String getIsbn() {
         return isbn;
     }
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
     public Double getPrice() {
         return price;
     }
@@ -75,8 +86,13 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
-
-
+    
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
 
     
@@ -92,9 +108,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", isbn=" + isbn
-                + ", price=" + price + "]";
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
+                + ", isbn=" + isbn + ", price=" + price + ", category=" + category.getName() + "]";
     }
+
 
  
 

@@ -6,22 +6,19 @@
     <title>Bookstore - Index</title>
 
 
-    <style>
-        body {
-            margin: auto;
-            width: 50%;
-            text-align: center;
-            background-color: linen;
-        }
-        
-        h1 {
-            color:orange;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 
 </head>
 
 <body>
+
+    <header>
+		<a th:href="@{/index}"><button type="button" class="btn btn-primary">Index</button></a>
+		<a th:href="@{/booklist}"><button type="button" class="btn btn-info">Books</button></a>
+		<a th:href="@{/categorylist}"><button type="button" class="btn btn-primary">Categories</button></a>
+	</header>
+	<br/><br/>
+
     <h1>Bookstore Webpage</h1>
     <p></p>
     <p>This is the index of the bookstore.</p>

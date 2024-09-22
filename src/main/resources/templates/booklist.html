@@ -8,6 +8,14 @@
 </head>
 
 <body>
+
+	<header>
+		<a th:href="@{/index}"><button type="button" class="btn btn-primary">Index</button></a>
+		<a th:href="@{/booklist}"><button type="button" class="btn btn-info">Books</button></a>
+		<a th:href="@{/categorylist}"><button type="button" class="btn btn-primary">Categories</button></a>
+	</header>
+	<br/><br/>
+
 	<h1>Book List</h1>
 	<table class="table table-striped">
 		<tr>
@@ -18,6 +26,7 @@
 			<th>Publication Year</th>
 			<th>ISBN</th>
 			<th>Price</th>
+			<th>Category</th>
 		</tr>
 
 		<!--IN CONTROLLER, BOOK TABLE IS SAVED INTO 'BOOKS'
@@ -30,6 +39,8 @@
 			<td th:text="${book.publicationYear}">id</td>
 			<td th:text="${book.isbn}">id</td>
 			<td th:text="${book.price}">id</td>
+
+			<td th:text="${book.category.name}">id</td>
 
 			<!-- DELETE BOOK LINK-->
 			<td><a th:href="@{/delete/{id}(id=${book.id})}"><button type="button" class="btn btn-danger">Delete</button>
