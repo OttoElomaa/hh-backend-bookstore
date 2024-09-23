@@ -10,7 +10,7 @@ import hh.backend.bookstore.domain.Category;
     // EXTENDS CrudRepository, THEN BookController WILL CREATE
     // A NEW Hibernate OBJECT THAT IMPLEMENTS
     // THE BookRepository INTERFACE
-public interface CategoryRepository extends CrudRepository<Category, Long> {
+public interface CategoryRepository extends CrudRepository<Category, Integer> {
 
 	List<Category> findByName(String name);
 	}

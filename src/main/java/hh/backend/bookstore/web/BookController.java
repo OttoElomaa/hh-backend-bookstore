@@ -94,10 +94,10 @@ public class BookController {
 
 
     @PostMapping(value = "/savemodified")
-        public String saveModified(Book newBook){
-            repository.save(newBook);
-            return "redirect:/booklist";
-        }
+    public String saveModified(Book newBook){
+        repository.save(newBook);
+        return "redirect:/booklist";
+    }
 
 
 }

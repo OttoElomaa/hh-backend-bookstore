@@ -9,7 +9,7 @@
 	<h1>Edit book</h1>
 
 	<div>
-		<form th:object="${selectedBook}" th:action="@{../savemodified}" action="#" method="post">
+		<form th:object="${selectedBook}" th:action="@{/savemodified}" action="#" method="post">
 
 			<input type="hidden" th:field="*{id}" class="form-control"/>
 
