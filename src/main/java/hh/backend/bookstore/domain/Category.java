@@ -3,6 +3,8 @@ package hh.backend.bookstore.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,27 +21,28 @@ public class Category {
     // ENTITY INTERFACES WITH THE ACTUAL TABLE IN DATABASE
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private int categoryId;
+	private Long categoryId;
 
 	private String name;
 
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy ="category")
 	private List<Book> books = new ArrayList<Book>();
 
 
-	public Category(int categoryId, String name) {
-		this.categoryId = categoryId;
+	public Category(String name) {
 		this.name = name;
 	}
+	
 	public Category() {
 	}
 
 	
 
-	public int getCategoryId() {
+	public Long getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getName() {

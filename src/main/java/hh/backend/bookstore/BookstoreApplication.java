@@ -34,10 +34,10 @@ public class BookstoreApplication {
 
 			// ADD TEST DATA: CATEGORIES
 
-			Category cat1 = new Category(1, "Science Fiction");
-			Category cat2 = new Category(2, "Fantasy");
-			Category cat3 = new Category(3, "Biography");
-			Category cat4 = new Category(4, "Textbook");
+			Category cat1 = new Category("Science Fiction");
+			Category cat2 = new Category( "Fantasy");
+			Category cat3 = new Category( "Biography");
+			Category cat4 = new Category( "Textbook");
 
 			catRepository.save(cat1);
 			catRepository.save(cat2);
